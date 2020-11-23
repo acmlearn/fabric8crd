@@ -1,0 +1,50 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  creationTimestamp: "2020-11-20T19:24:09Z"
+  generation: 5
+  labels:
+    app: test
+    customer-id: "12345"
+    identifier: "1"
+    last-received-action: STARTED
+    release-status-exchange: TEST_RELEASE_STATUS
+  name: test-1
+  namespace: test
+  resourceVersion: "476859"
+  selfLink: /apis/helm.fluxcd.io/v1/namespaces/test/helmreleases/test-1
+  uid: d156c889-8231-4191-9dcb-3243d3879ff4
+spec:
+  chart:
+    name: test
+    repository: https://test-chart
+    version: 1.0.2849
+  forceUpgrade: false
+  maxHistory: 10
+  releaseName: test-1
+  resetValues: false
+  skipCRDs: false
+  timeout: 1200000
+  values:
+    customerId: "12345"
+    extraLabels:
+      customer-id: "12345"
+      identifier: "1"
+    image:
+      pullPolicy: IfNotPresent
+      repository: repo/test
+      tag: develop
+    imagePullSecrets:
+      - test-registrykey
+    nodeSelector: {}
+    persistentVolume:
+      accessModes: []
+      annotations: {}
+      enabled: false
+      labels: {}
+    replicaCount: 1
+    statefulsetAnnotations: {}
+    tolerations: []
+    updateStrategy: RollingUpdate
+    useHeaderMatchRouting: true
+  wait: true
